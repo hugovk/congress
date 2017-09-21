@@ -1,8 +1,5 @@
 import utils
-import os
-import os.path
-import re
-from lxml import html, etree
+from lxml import html
 import logging
 
 import nomination_info

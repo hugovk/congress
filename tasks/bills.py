@@ -1,7 +1,6 @@
 import json
 import logging
 import os
-import re
 import xmltodict
 
 import bill_info

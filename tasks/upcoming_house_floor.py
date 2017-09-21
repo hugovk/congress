@@ -1,8 +1,7 @@
 import utils
 import logging
-import sys
 import os
-from datetime import date, datetime
+from datetime import datetime
 import time
 from dateutil.relativedelta import relativedelta
 from dateutil.relativedelta import MO
@@ -115,7 +114,7 @@ def fetch_floor_week(for_the_week, options):
             'published_at': date_for(node.get('publish-date')),
             'added_at': date_for(node.get('add-date')),
         }
-        
+
         # treat drafts and numbered bills a bit differently
         if "_" in bill_number:
             draft_bill_id = draft_bill_id_for(bill_number, date, congress)
@@ -140,7 +139,7 @@ def fetch_floor_week(for_the_week, options):
                 bill_number = bill_number.replace("Conference report to accompany ", '')
             else:
                 bill['item_type'] = 'bill'
-        
+
             bill['bill_id'] = bill_id_for(bill_number.strip(), congress)
 
         bill['files'] = []

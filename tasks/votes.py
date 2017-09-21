@@ -6,8 +6,6 @@ import os
 import os.path
 import re
 import urlparse
-import time
-import datetime
 from lxml import html, etree
 import logging
 

@@ -1,7 +1,5 @@
 import utils
-import logging
 import re
-import json
 from lxml import etree
 import copy
 import datetime
@@ -434,7 +432,7 @@ def action_for(item):
 
     if not item.get('actionTime'):
         acted_at = item.get('actionDate', '')
-    else:    
+    else:
         # Although we get the action date & time in an ISO-ish format (split
         # across two fields), and although we know it's in local time at the
         # U.S. Capitol (i.e. U.S. Eastern), we don't know the UTC offset which
@@ -484,7 +482,7 @@ def action_for(item):
         'action_code': item.get('actionCode', ''),
         'committees': [item['committee']['systemCode'][0:-2].upper()] if item['committee'] else None,
         'references': references,
-        'type': 'action', # replaced by parse_bill_action if a regex matches 
+        'type': 'action', # replaced by parse_bill_action if a regex matches
         'text': text,
     }
 

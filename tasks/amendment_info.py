@@ -1,7 +1,5 @@
 import re
 import logging
-import datetime
-import time
 import json
 from lxml import etree
 

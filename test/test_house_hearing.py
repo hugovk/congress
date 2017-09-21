@@ -1,6 +1,5 @@
 import committee_meetings
 import lxml.etree
-import os
 import unittest
 import utils
 
@@ -24,7 +23,7 @@ class HearingInfo(unittest.TestCase):
         dom = lxml.etree.parse(file_xml)
         test_output = committee_meetings.parse_house_committee_meeting(
             '102252', dom, [], committees, {"debug": False}, None, ["BILLS-113hr4435ih.pdf", "BILLS-113hr4435ih.xml"])
-        
+
 #          event_id, dom, existing_meetings, committees, options, witnesses, uploaded_documents
         self.assertEqual(test_output['bill_ids'], ['hr4435-113'])
         self.assertEqual(test_output['chamber'], 'house')
@@ -41,7 +40,7 @@ class HearingInfo(unittest.TestCase):
         self.assertEqual(test_output['meeting_documents'][0]['type'], 'BR')
         self.assertEqual(
             test_output['meeting_documents'][0]['urls'], [
-                        {'url': 'http://beta.congress.gov/113/bills/hr4435/BILLS-113hr4435ih.pdf', 'file_found': True}, 
+                        {'url': 'http://beta.congress.gov/113/bills/hr4435/BILLS-113hr4435ih.pdf', 'file_found': True},
                         {'url': 'http://beta.congress.gov/113/bills/hr4435/BILLS-113hr4435ih.xml', 'file_found': True},])
         self.assertEqual(test_output['occurs_at'], '2014-05-19T17:00:00')
         self.assertEqual(test_output['room'], 'CAPITOL H-313')
