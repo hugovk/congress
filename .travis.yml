@@ -1,6 +1,7 @@
 language: python
 python:
   - "2.7"
+  - "3.6"
 
 os:
   - linux
@@ -12,3 +13,9 @@ after_success:
  - pip install pyflakes
  - pyflakes tasks/*.py | tee >(wc -l)
  - pyflakes test/*.py  | tee >(wc -l)
+ - pyflakes run        | tee >(wc -l)
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - python: 3.6
